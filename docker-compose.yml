@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+    21travel-sanction-search:
+        build: .
+        ports:
+          - "9200:9200"
+          - "9300:9300"
+        environment:
+            - discovery.type=single-node
+            - repositories.url.allowed_urls=https://gitlab.com/21analytics/sanctions-snapshot/-/raw/master/
+        networks:
+            - myNetwork
+
+    restore:
+        build: ./restore/
+        networks:
+            - myNetwork
+
+networks:
+  myNetwork:

@@ -1,0 +1,1 @@
+Goal: Restore the sanctions snapshot on a freshly spawned ES instance. The two `curl` calls in `restore.sh` are exactly what `sanctiond` also does.
